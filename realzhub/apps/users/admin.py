@@ -2,9 +2,13 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 
-from realzhub.users.forms import UserChangeForm, UserCreationForm
+from realzhub.core.loading import get_classes
 
 User = get_user_model()
+
+UserChangeForm, UserCreationForm = get_classes(
+    "users.forms", ["UserChangeForm", "UserCreationForm"]
+)
 
 
 @admin.register(User)

@@ -5,11 +5,7 @@ from django.test import RequestFactory
 
 from realzhub.users.models import User
 from realzhub.users.tests.factories import UserFactory
-from realzhub.users.views import (
-    UserRedirectView,
-    UserUpdateView,
-    user_detail_view,
-)
+from realzhub.users.views import UserRedirectView, UserUpdateView, user_detail_view
 
 pytestmark = pytest.mark.django_db
 

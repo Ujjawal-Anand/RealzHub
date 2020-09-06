@@ -41,9 +41,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///realzhub")
-}
+DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///realzhub")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -78,7 +76,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "realzhub.users.apps.UsersConfig",
+    "realzhub.config.RealzHub",
+    "realzhub.apps.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -313,3 +312,6 @@ REST_FRAMEWORK = {
 CORS_URLS_REGEX = r"^/api/.*$"
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+# App constants
+from realzhub.defaults import *  # noqa: F401, F403, E402
